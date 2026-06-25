@@ -182,7 +182,7 @@ class Test_Policy:
     # Test lowercase context key name --> aws
     def test_condition_parser_string_equals_aws_SourceAccount_list(self):
         condition_statement = {
-            "StringEquals": {"aws:SourceAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringEquals": {"aws:SourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -191,14 +191,11 @@ class Test_Policy:
     def test_condition_parser_string_equals_aws_SourceAccount_list_not_valid(self):
         condition_statement = {
             "StringEquals": {
-                "aws:SourceAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "aws:SourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_aws_SourceAccount_str(self):
@@ -214,12 +211,12 @@ class Test_Policy:
             "StringEquals": {"aws:SourceAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_aws_SourceAccount_list(self):
         condition_statement = {
-            "StringLike": {"aws:SourceAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringLike": {"aws:SourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -228,14 +225,11 @@ class Test_Policy:
     def test_condition_parser_string_like_aws_SourceAccount_list_not_valid(self):
         condition_statement = {
             "StringLike": {
-                "aws:SourceAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "aws:SourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_aws_SourceAccount_str(self):
@@ -251,7 +245,7 @@ class Test_Policy:
             "StringLike": {"aws:SourceAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_aws_SourceOwner_str(self):
@@ -267,12 +261,12 @@ class Test_Policy:
             "StringEquals": {"aws:SourceOwner": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_aws_SourceOwner_list(self):
         condition_statement = {
-            "StringEquals": {"aws:SourceOwner": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringEquals": {"aws:SourceOwner": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -281,19 +275,16 @@ class Test_Policy:
     def test_condition_parser_string_equals_aws_SourceOwner_list_not_valid(self):
         condition_statement = {
             "StringEquals": {
-                "aws:SourceOwner": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "aws:SourceOwner": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_aws_SourceOwner_list(self):
         condition_statement = {
-            "StringLike": {"aws:SourceOwner": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringLike": {"aws:SourceOwner": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -302,14 +293,11 @@ class Test_Policy:
     def test_condition_parser_string_like_aws_SourceOwner_list_not_valid(self):
         condition_statement = {
             "StringLike": {
-                "aws:SourceOwner": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "aws:SourceOwner": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_aws_SourceOwner_str(self):
@@ -325,12 +313,12 @@ class Test_Policy:
             "StringLike": {"aws:SourceOwner": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_s3_ResourceAccount_list(self):
         condition_statement = {
-            "StringEquals": {"s3:ResourceAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringEquals": {"s3:ResourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -339,14 +327,11 @@ class Test_Policy:
     def test_condition_parser_string_equals_s3_ResourceAccount_list_not_valid(self):
         condition_statement = {
             "StringEquals": {
-                "s3:ResourceAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "s3:ResourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_s3_ResourceAccount_str(self):
@@ -362,12 +347,12 @@ class Test_Policy:
             "StringEquals": {"s3:ResourceAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_aws_PrincipalAccount_list(self):
         condition_statement = {
-            "StringEquals": {"aws:PrincipalAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringEquals": {"aws:PrincipalAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -376,14 +361,11 @@ class Test_Policy:
     def test_condition_parser_string_equals_aws_PrincipalAccount_list_not_valid(self):
         condition_statement = {
             "StringEquals": {
-                "aws:PrincipalAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "aws:PrincipalAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_aws_PrincipalAccount_str(self):
@@ -399,7 +381,7 @@ class Test_Policy:
             "StringEquals": {"aws:PrincipalAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_aws_SourceArn_str(self):
@@ -419,12 +401,12 @@ class Test_Policy:
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_aws_PrincipalAccount_list(self):
         condition_statement = {
-            "StringLike": {"aws:PrincipalAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringLike": {"aws:PrincipalAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -433,14 +415,11 @@ class Test_Policy:
     def test_condition_parser_string_like_aws_PrincipalAccount_list_not_valid(self):
         condition_statement = {
             "StringLike": {
-                "aws:PrincipalAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "aws:PrincipalAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_aws_PrincipalAccount_str(self):
@@ -456,7 +435,7 @@ class Test_Policy:
             "StringLike": {"aws:PrincipalAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_like_aws_SourceArn_list(self):
@@ -483,7 +462,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_like_aws_SourceArn_str(self):
@@ -505,7 +484,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_like_aws_PrincipalArn_list(self):
@@ -532,7 +511,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_like_aws_PrincipalArn_str(self):
@@ -554,7 +533,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_equals_aws_SourceArn_list(self):
@@ -581,7 +560,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_equals_aws_SourceArn_str(self):
@@ -603,7 +582,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_equals_aws_PrincipalArn_list(self):
@@ -630,7 +609,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_equals_aws_PrincipalArn_str(self):
@@ -652,7 +631,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_aws_SourceArn_list(self):
@@ -679,7 +658,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_aws_SourceArn_str(self):
@@ -701,7 +680,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_aws_PrincipalArn_list(self):
@@ -728,7 +707,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_aws_PrincipalArn_str(self):
@@ -750,12 +729,12 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_aws_ResourceAccount_list(self):
         condition_statement = {
-            "StringEquals": {"aws:ResourceAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringEquals": {"aws:ResourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -764,14 +743,11 @@ class Test_Policy:
     def test_condition_parser_string_equals_aws_ResourceAccount_list_not_valid(self):
         condition_statement = {
             "StringEquals": {
-                "aws:ResourceAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "aws:ResourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_aws_ResourceAccount_str(self):
@@ -787,12 +763,12 @@ class Test_Policy:
             "StringEquals": {"aws:ResourceAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_aws_ResourceAccount_list(self):
         condition_statement = {
-            "StringLike": {"aws:ResourceAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringLike": {"aws:ResourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -801,14 +777,11 @@ class Test_Policy:
     def test_condition_parser_string_like_aws_ResourceAccount_list_not_valid(self):
         condition_statement = {
             "StringLike": {
-                "aws:ResourceAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "aws:ResourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_aws_ResourceAccount_str(self):
@@ -824,13 +797,13 @@ class Test_Policy:
             "StringLike": {"aws:ResourceAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     # Test uppercase context key name --> AWS
     def test_condition_parser_string_equals_AWS_SourceAccount_list(self):
         condition_statement = {
-            "StringEquals": {"AWS:SourceAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringEquals": {"AWS:SourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -839,14 +812,11 @@ class Test_Policy:
     def test_condition_parser_string_equals_AWS_SourceAccount_list_not_valid(self):
         condition_statement = {
             "StringEquals": {
-                "AWS:SourceAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "AWS:SourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_AWS_SourceAccount_str(self):
@@ -862,12 +832,12 @@ class Test_Policy:
             "StringEquals": {"AWS:SourceAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_AWS_SourceAccount_list(self):
         condition_statement = {
-            "StringLike": {"AWS:SourceAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringLike": {"AWS:SourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -876,14 +846,11 @@ class Test_Policy:
     def test_condition_parser_string_like_AWS_SourceAccount_list_not_valid(self):
         condition_statement = {
             "StringLike": {
-                "AWS:SourceAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "AWS:SourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_AWS_SourceAccount_str(self):
@@ -899,7 +866,7 @@ class Test_Policy:
             "StringLike": {"AWS:SourceAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_AWS_SourceOwner_str(self):
@@ -915,12 +882,12 @@ class Test_Policy:
             "StringEquals": {"AWS:SourceOwner": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_AWS_SourceOwner_list(self):
         condition_statement = {
-            "StringEquals": {"AWS:SourceOwner": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringEquals": {"AWS:SourceOwner": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -929,19 +896,16 @@ class Test_Policy:
     def test_condition_parser_string_equals_AWS_SourceOwner_list_not_valid(self):
         condition_statement = {
             "StringEquals": {
-                "AWS:SourceOwner": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "AWS:SourceOwner": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_AWS_SourceOwner_list(self):
         condition_statement = {
-            "StringLike": {"AWS:SourceOwner": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringLike": {"AWS:SourceOwner": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -950,14 +914,11 @@ class Test_Policy:
     def test_condition_parser_string_like_AWS_SourceOwner_list_not_valid(self):
         condition_statement = {
             "StringLike": {
-                "AWS:SourceOwner": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "AWS:SourceOwner": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_AWS_SourceOwner_str(self):
@@ -973,12 +934,12 @@ class Test_Policy:
             "StringLike": {"AWS:SourceOwner": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_S3_ResourceAccount_list(self):
         condition_statement = {
-            "StringEquals": {"S3:ResourceAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringEquals": {"S3:ResourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -987,14 +948,11 @@ class Test_Policy:
     def test_condition_parser_string_equals_S3_ResourceAccount_list_not_valid(self):
         condition_statement = {
             "StringEquals": {
-                "S3:ResourceAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "S3:ResourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_S3_ResourceAccount_str(self):
@@ -1010,12 +968,12 @@ class Test_Policy:
             "StringEquals": {"S3:ResourceAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_AWS_PrincipalAccount_list(self):
         condition_statement = {
-            "StringEquals": {"AWS:PrincipalAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringEquals": {"AWS:PrincipalAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -1024,14 +982,11 @@ class Test_Policy:
     def test_condition_parser_string_equals_AWS_PrincipalAccount_list_not_valid(self):
         condition_statement = {
             "StringEquals": {
-                "AWS:PrincipalAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "AWS:PrincipalAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_AWS_PrincipalAccount_str(self):
@@ -1047,12 +1002,12 @@ class Test_Policy:
             "StringEquals": {"AWS:PrincipalAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_AWS_PrincipalAccount_list(self):
         condition_statement = {
-            "StringLike": {"AWS:PrincipalAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringLike": {"AWS:PrincipalAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -1061,14 +1016,11 @@ class Test_Policy:
     def test_condition_parser_string_like_AWS_PrincipalAccount_list_not_valid(self):
         condition_statement = {
             "StringLike": {
-                "AWS:PrincipalAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "AWS:PrincipalAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_AWS_PrincipalAccount_str(self):
@@ -1084,7 +1036,7 @@ class Test_Policy:
             "StringLike": {"AWS:PrincipalAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_like_AWS_SourceArn_list(self):
@@ -1111,7 +1063,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_like_AWS_SourceArn_str(self):
@@ -1133,7 +1085,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_like_AWS_PrincipalArn_list(self):
@@ -1160,7 +1112,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_like_AWS_PrincipalArn_str(self):
@@ -1182,7 +1134,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_equals_AWS_SourceArn_list(self):
@@ -1209,7 +1161,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_equals_AWS_SourceArn_str(self):
@@ -1231,7 +1183,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_equals_AWS_PrincipalArn_list(self):
@@ -1258,7 +1210,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_arn_equals_AWS_PrincipalArn_str(self):
@@ -1280,7 +1232,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_AWS_SourceArn_list(self):
@@ -1307,7 +1259,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_AWS_SourceArn_str(self):
@@ -1329,7 +1281,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_AWS_PrincipalArn_list(self):
@@ -1356,7 +1308,7 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_AWS_PrincipalArn_str(self):
@@ -1378,12 +1330,12 @@ class Test_Policy:
         }
 
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_AWS_ResourceAccount_list(self):
         condition_statement = {
-            "StringEquals": {"AWS:ResourceAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringEquals": {"AWS:ResourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -1392,14 +1344,11 @@ class Test_Policy:
     def test_condition_parser_string_equals_AWS_ResourceAccount_list_not_valid(self):
         condition_statement = {
             "StringEquals": {
-                "AWS:ResourceAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "AWS:ResourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_AWS_ResourceAccount_str(self):
@@ -1415,12 +1364,12 @@ class Test_Policy:
             "StringEquals": {"AWS:ResourceAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_AWS_ResourceAccount_list(self):
         condition_statement = {
-            "StringLike": {"AWS:ResourceAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringLike": {"AWS:ResourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -1429,14 +1378,11 @@ class Test_Policy:
     def test_condition_parser_string_like_AWS_ResourceAccount_list_not_valid(self):
         condition_statement = {
             "StringLike": {
-                "AWS:ResourceAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "AWS:ResourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_AWS_ResourceAccount_str(self):
@@ -1452,7 +1398,7 @@ class Test_Policy:
             "StringLike": {"AWS:ResourceAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_aws_CalledVia_str(self):
@@ -1506,12 +1452,12 @@ class Test_Policy:
             "StringEquals": {"kms:CallerAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_kms_CallerAccount_list(self):
         condition_statement = {
-            "StringEquals": {"kms:CallerAccount": [TRUSTED_AWS_ACCOUNT_NUMBER]}
+            "StringEquals": {"kms:CallerAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST}
         }
         assert is_condition_block_restrictive(
             condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
@@ -1520,14 +1466,11 @@ class Test_Policy:
     def test_condition_parser_string_equals_kms_CallerAccount_list_not_valid(self):
         condition_statement = {
             "StringEquals": {
-                "kms:CallerAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "kms:CallerAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             }
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_equals_kms_ViaService_str(self):
@@ -1553,7 +1496,7 @@ class Test_Policy:
             "StringLike": {"kms:CallerAccount": NON_TRUSTED_AWS_ACCOUNT_NUMBER}
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_string_like_kms_ViaService_str(self):
@@ -1567,10 +1510,7 @@ class Test_Policy:
     def test_condition_parser_two_lists_unrestrictive(self):
         condition_statement = {
             "StringLike": {
-                "AWS:ResourceAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "AWS:ResourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             },
             "ArnLike": {
                 "AWS:SourceArn": [
@@ -1580,7 +1520,7 @@ class Test_Policy:
             },
         }
         assert not is_condition_block_restrictive(
-            condition_statement, TRUSTED_AWS_ACCOUNT_NUMBER
+            condition_statement, NON_TRUSTED_AWS_ACCOUNT_NUMBER
         )
 
     def test_condition_parser_two_lists_both_restrictive(self):
@@ -1621,10 +1561,7 @@ class Test_Policy:
     def test_condition_parser_two_lists_second_restrictive(self):
         condition_statement = {
             "StringLike": {
-                "AWS:ResourceAccount": [
-                    TRUSTED_AWS_ACCOUNT_NUMBER,
-                    NON_TRUSTED_AWS_ACCOUNT_NUMBER,
-                ]
+                "AWS:ResourceAccount": TRUSTED_AWS_ACCOUNT_NUMBER_LIST
             },
             "ArnLike": {
                 "AWS:SourceArn": [

@@ -673,34 +673,30 @@ def is_condition_block_restrictive(
                         if not is_cross_account_allowed:
                             # if there is an arn/account without the source account -> we do not consider it safe
                             # here by default we assume is true and look for false entries
-                            for item in condition_statement[condition_operator][value]:
-                                if (
-                                    "aws:sourcevpc" != value
-                                    and "aws:sourcevpce" != value
-                                ):
-                                    if value == "aws:sourcearn":
-                                        # Use the specialized function to properly validate SourceArn restrictions
-                                        # Create a minimal statement to test with our function
-                                        test_statement = {
-                                            "Condition": {
-                                                condition_operator: {
-                                                    value: condition_statement[
-                                                        condition_operator
-                                                    ][value]
-                                                }
+                            if (
+                                "aws:sourcevpc" != value
+                                and "aws:sourcevpce" != value
+                            ):
+                                if value == "aws:sourcearn":
+                                    # Use the specialized function to properly validate SourceArn restrictions
+                                    # Create a minimal statement to test with our function
+                                    test_statement = {
+                                        "Condition": {
+                                            condition_operator: {
+                                                value: condition_statement[
+                                                    condition_operator
+                                                ][value]
                                             }
                                         }
-                                        is_condition_key_restrictive = (
-                                            has_restrictive_source_arn_condition(
-                                                test_statement, source_account
-                                            )
+                                    }
+                                    is_condition_key_restrictive = (
+                                        has_restrictive_source_arn_condition(
+                                            test_statement, source_account
                                         )
-                                        if not is_condition_key_restrictive:
-                                            break
-                                    else:
-                                        if source_account not in item:
-                                            is_condition_key_restrictive = False
-                                            break
+                                    )
+                                else:
+                                    if source_account not in condition_statement[condition_operator][value]:
+                                        is_condition_key_restrictive = False
 
                         if is_condition_key_restrictive:
                             is_condition_valid = True
